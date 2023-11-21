@@ -36,3 +36,26 @@ const kittenMaineCoonx = `<li class="card">'
                 Sus ojos son grandes y las orejas resultan largas y en punta.
             </p>
             </li>`;
+
+const sectionB = document.querySelector('.new-form');
+
+
+
+const addButton=document.querySelector(".js_plus")
+addButton.addEventListener('click', () => {
+    sectionB.classList.remove('collapsed');
+  });
+  const inputDesc = document.querySelector('.js-input-desc');
+  const inputPhoto = document.querySelector('.js-input-photo');
+  const inputName = document.querySelector('.js-input-name');
+  const labelMessageError = document.querySelector('.js-label-error');
+  const formButton=document.querySelector(".js-btn-add")
+ 
+  formButton.addEventListener('click', () => {
+    const valueDesc = inputDesc.value;
+    const valuePhoto = inputPhoto.value;
+    const valueName = inputName.value;
+
+  });
+
+  
