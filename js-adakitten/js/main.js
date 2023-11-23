@@ -1,5 +1,5 @@
 "use strict"
-const kittenCard=document.querySelector(".js-list")
+
 const kittenSiames = `<li class="card">'
 <li class="card">
           <article>
@@ -38,7 +38,7 @@ const kittenMaineCoonx = `<li class="card">'
             </li>`;
 
 const sectionB = document.querySelector('.new-form');
-
+const kittenCard = document.querySelector(".js-list");
 
 
 const addButton=document.querySelector(".js_plus")
@@ -48,14 +48,51 @@ addButton.addEventListener('click', () => {
   const inputDesc = document.querySelector('.js-input-desc');
   const inputPhoto = document.querySelector('.js-input-photo');
   const inputName = document.querySelector('.js-input-name');
-  const labelMessageError = document.querySelector('.js-label-error');
-  const formButton=document.querySelector(".js-btn-add")
+  const inputBreed = document.querySelector('.js-input-breed');
+  const formButton = document.querySelector(".js-btn-add");
+  const formCancel = document.querySelector('.js-btn-cancel');
  
-  formButton.addEventListener('click', () => {
+  formButton.addEventListener('click', (event) => {
+    event.preventDefault();
     const valueDesc = inputDesc.value;
     const valuePhoto = inputPhoto.value;
     const valueName = inputName.value;
+    const valueBreed = inputBreed.value;
+    /* Código HTML de un gatito */
+    const newKittenHTML = `<li class="card">
+    <article>
+      <img
+        class="card_img"
+        src="` + valuePhoto + `"
+        alt="gatito"
+      />
+      <h3 class="card_title">` + valueName + `</h3>
+      <h4 class="card_race">` + valueBreed + `</h4>
+      <p class="card_description">
+          ` + valueDesc + `
+      </p>
+    </article>
+    </li>`;
 
+    kittenCard.innerHTML = newKittenHTML;
+    
   });
 
-  
+  formCancel.addEventListener('click', (event) => {
+    event.preventDefault();
+    let valueDesc = inputDesc.value;
+    let valuePhoto = inputPhoto.value;
+    let valueName = inputName.value;
+    let valueBreed = inputBreed.value;
+    valueDesc = "";
+    valuePhoto = "";
+    valueName = "";
+    valueBreed = "";
+  });
+
+
+  const input_search_desc = document.querySelector('.js_in_search_desc');
+  const descrSearchText = input_search_desc.value;
+  const kittenDesc1 = document.querySelector('js-desc-1');
+  const kittenDesc2 = document.querySelector('js-desc-2');
+  const kittenDesc3 = document.querySelector('js-desc-3');
