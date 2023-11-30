@@ -45,7 +45,33 @@ const inputBreed = document.querySelector('.js-input-breed');
 const formButton = document.querySelector(".js-btn-add");
 const labelMessageError = document.querySelector('.js-label-error');
  
-formButton.addEventListener('click', (event) => {
+// const jugadora_1_nombre = 'Alexia';
+// const jugadora_1_foto = './images/Alexia.png';
+
+// const jugadora_2_nombre = 'Athenea';
+// const jugadora_2_foto = './images/Athenea.png';
+
+function renderKitten(url, desc, name, race) {
+  kittenCard.innerHTML += `<li class="card">
+  <article>
+   <img
+   class="card_img"
+   src=${url}
+   alt="gatito"
+   />
+   <h3 class="card_title">${name}</h3>
+   <h4 class="card_race">${race}</h4>
+   <p class="card_description">
+   ${desc}
+   </p>
+   </article>
+    </li>`;
+  
+  };
+
+
+formButton.addEventListener('click', addNewKitten);
+function addNewKitten (event){
   event.preventDefault();
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
@@ -64,26 +90,12 @@ formButton.addEventListener('click', (event) => {
   else if( valueDesc === "") {
     labelMessageError.innerHTML = "Te falta escribir la descripción del gatito";
   }
+  renderKitten(valuePhoto, valueDesc, valueName, valueBreed)
+  
 
-  /* Código HTML de un gatito */
-  const newKittenHTML = `<li class="card">
-    <article>
-      <img
-        class="card_img"
-        src="` + valuePhoto + `"
-        alt="gatito"
-      />
-      <h3 class="card_title">` + valueName + `</h3>
-      <h4 class="card_race">` + valueBreed + `</h4>
-      <p class="card_description">
-            ` + valueDesc + `
-      </p>
-    </article>
-  </li>`;
-
-  kittenCard.innerHTML = newKittenHTML;
-    
-});
+ 
+  
+}
 
 const formCancel = document.querySelector('.js-btn-cancel');
 
