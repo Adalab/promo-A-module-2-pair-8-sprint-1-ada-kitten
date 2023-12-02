@@ -2,35 +2,58 @@
 
 const kittenCard = document.querySelector(".js-list");
 
-// Kitten 1
-const kittenImage1 = 'https://dev.adalab.es/gato-siames.webp';
-const kittenName1 = 'Anastacio';
-const kittenDesc1 = `
-  Porte elegante, su patrón de color tan característico y sus ojos
-  de un azul intenso, pero su historia se remonta a Asía al menos
-  hace 500 años, donde tuvo su origen muy posiblemente.`;
-const kittenRace1 = 'Siamés';
+// // Kitten 1
+// const kittenImage1 = 'https://dev.adalab.es/gato-siames.webp';
+// const kittenName1 = 'Anastacio';
+// const kittenDesc1 = `
+//   Porte elegante, su patrón de color tan característico y sus ojos
+//   de un azul intenso, pero su historia se remonta a Asía al menos
+//   hace 500 años, donde tuvo su origen muy posiblemente.`;
+// const kittenRace1 = 'Siamés';
 
-// Kitten 2
-const kittenImage2 = 'https://dev.adalab.es/sphynx-gato.webp';
-const kittenName2 = 'Fiona';
-const kittenDesc2 = `
-  Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
-  hasta con pinta de alienígena han llegado a definir a esta raza
-  gatuna que se caracteriza por la «ausencia» de pelo.`;
-const kittenRace2 = 'Sphynx';
+// // Kitten 2
+// const kittenImage2 = 'https://dev.adalab.es/sphynx-gato.webp';
+// const kittenName2 = 'Fiona';
+// const kittenDesc2 = `
+//   Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
+//   hasta con pinta de alienígena han llegado a definir a esta raza
+//   gatuna que se caracteriza por la «ausencia» de pelo.`;
+// const kittenRace2 = 'Sphynx';
 
-// Kitten 3
-const kittenImage3 = 'https://dev.adalab.es/maine-coon-cat.webp';
-const kittenName3 = 'Cielo';
-const kittenDesc3 = `
-  Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-  bella mirada se ha convertido en una de sus señas de identidad.
-  Sus ojos son grandes y las orejas resultan largas y en punta.`;
-const kittenRace3 = 'Maine Coon';
+// // Kitten 3
+// const kittenImage3 = 'https://dev.adalab.es/maine-coon-cat.webp';
+// const kittenName3 = 'Cielo';
+// const kittenDesc3 = `
+//   Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+//   bella mirada se ha convertido en una de sus señas de identidad.
+//   Sus ojos son grandes y las orejas resultan largas y en punta.`;
+// const kittenRace3 = 'Maine Coon';
 
 const sectionB = document.querySelector('.new-form');
 const addButton = document.querySelector(".js_plus");
+
+//ejemplo de un objeto con la información del primer gatito
+const kittenData_1 = {
+  image: 'https://dev.adalab.es/gato-siames.webp',
+  name: 'Anastacio',
+  desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+  race: 'Siamés',
+};
+const kittenData_2 = {
+  image: 'https://dev.adalab.es/sphynx-gato.webp',
+  name: 'Fiona',
+  desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+  race: 'Sphynx',
+};
+const kittenData_3 = {
+  image: 'https://dev.adalab.es/maine-coon-cat.webp',
+  name: 'Cielo',
+  desc:  `Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+  bella mirada se ha convertido en una de sus señas de identidad.
+  Sus ojos son grandes y las orejas resultan largas y en punta.`,
+  race: 'Maine Coon',
+};
+
 
 /*
 addButton.addEventListener('click', () => {
@@ -58,20 +81,26 @@ function renderRace (race){
 
 // const jugadora_2_nombre = 'Athenea';
 // const jugadora_2_foto = './images/Athenea.png';
+// const KittenData ={
+//   url:"",
+//   name:"",
+//   race:"",
+//   desc:""
+// };
 
-function renderKitten(url, desc, name, race) {
-  const contentRace = renderRace (race)
-  kittenCard.innerHTML += `<li class="card">
+function renderKitten(kittenData) {
+  const contentRace = renderRace (kittenData.race)
+ const kittenCard = `<li class="card">
   <article>
    <img
    class="card_img"
-   src=${url}
+   src=${kittenData.url}
    alt="gatito"
    />
-   <h3 class="card_title">${name}</h3>
-   <h4 class="card_race">${contentRace}</h4>
+   <h3 class="card_title">${kittenData.name}</h3>
+   <h4 class="card_race">${kittenData.race}</h4>
    <p class="card_description">
-   ${desc}
+   ${kittenData.desc}
    </p>
    </article>
     </li>`;
